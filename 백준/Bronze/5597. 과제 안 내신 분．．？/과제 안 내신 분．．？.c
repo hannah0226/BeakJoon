@@ -3,34 +3,17 @@
 #include<stdlib.h>
 int main(void)
 {
-	int a[30] = { 0 }, num, correct, n[2] = { 0 };
+	int a[30] = { 0 }, n[30] = { 0 }, num;
 	for (int i = 0; i < 28; i++)
 	{
 		scanf("%d", &num);
 		a[i] = num;
 	}
-	for (int i = 1; i < 31; i++)
-	{
+	for (int i = 0; i < 28; i++)
 		for (int j = 0; j < 30; j++)
-		{
-			if (i == a[j]) 
-			{
-				correct = 1;
-				break;
-			}
-			else
-				correct = 0;
-		}
-		if (correct == 0) 
-		{
-			if (n[0] == 0)
-				n[0] = i;
-			else 
-			{
-				n[1] = i;
-				break;
-			}
-		}
-	}
-	printf("%d\n%d", n[0], n[1]);
+			if (a[i] == j+1)
+				n[j] = 1;
+	for (int i = 0; i < 30; i++)
+		if (n[i] == 0)
+			printf("%d\n", i + 1);
 }
